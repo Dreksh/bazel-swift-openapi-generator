@@ -1,0 +1,469 @@
+{
+  "direct_dep_identities": [
+    "openapikit",
+    "swift-algorithms",
+    "swift-argument-parser",
+    "swift-docc-plugin",
+    "swift-openapi-runtime",
+    "yams"
+  ],
+  "modules": [
+    {
+      "name": "OpenAPIKit",
+      "c99name": "OpenAPIKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKit",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKit30",
+      "c99name": "OpenAPIKit30",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKit30",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit30",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKitCompat",
+      "c99name": "OpenAPIKitCompat",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKitCore",
+      "c99name": "OpenAPIKitCore",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKitCore",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit30",
+        "OpenAPIKit",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "Algorithms",
+      "c99name": "Algorithms",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_algorithms//:Sources_Algorithms",
+      "package_identity": "swift-algorithms",
+      "product_memberships": [
+        "Algorithms"
+      ]
+    },
+    {
+      "name": "GenerateManual",
+      "c99name": "GenerateManual",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_argument_parser//:Plugins_GenerateManual",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "ArgumentParser",
+      "c99name": "ArgumentParser",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "ArgumentParser",
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "ArgumentParserToolInfo",
+      "c99name": "ArgumentParserToolInfo",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Sources_ArgumentParserToolInfo",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "ArgumentParser",
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "generate-manual",
+      "c99name": "generate_manual",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Tools_generate-manual",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "Swift-DocC",
+      "c99name": "Swift_DocC",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_docc_plugin//:Plugins_Swift-DocC Convert_Swift-DocC",
+      "package_identity": "swift-docc-plugin",
+      "product_memberships": [
+        "Swift-DocC"
+      ]
+    },
+    {
+      "name": "Swift-DocC Preview",
+      "c99name": "Swift_DocC_Preview",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_docc_plugin//:Plugins_Swift-DocC Preview",
+      "package_identity": "swift-docc-plugin",
+      "product_memberships": [
+        "Swift-DocC Preview"
+      ]
+    },
+    {
+      "name": "Snippets",
+      "c99name": "Snippets",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_docc_plugin//:Sources_Snippets",
+      "package_identity": "swift-docc-plugin",
+      "product_memberships": [
+        "Swift-DocC",
+        "Swift-DocC Preview"
+      ]
+    },
+    {
+      "name": "snippet-extract",
+      "c99name": "snippet_extract",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_docc_plugin//:Sources_snippet-extract",
+      "package_identity": "swift-docc-plugin",
+      "product_memberships": [
+        "Swift-DocC",
+        "Swift-DocC Preview"
+      ]
+    },
+    {
+      "name": "SymbolKit",
+      "c99name": "SymbolKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_docc_symbolkit//:Sources_SymbolKit",
+      "package_identity": "swift-docc-symbolkit",
+      "product_memberships": [
+        "SymbolKit"
+      ]
+    },
+    {
+      "name": "HTTPTypes",
+      "c99name": "HTTPTypes",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
+      "package_identity": "swift-http-types",
+      "product_memberships": [
+        "HTTPTypes",
+        "HTTPTypesFoundation"
+      ]
+    },
+    {
+      "name": "HTTPTypesFoundation",
+      "c99name": "HTTPTypesFoundation",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_http_types//:Sources_HTTPTypesFoundation",
+      "package_identity": "swift-http-types",
+      "product_memberships": [
+        "HTTPTypesFoundation"
+      ]
+    },
+    {
+      "name": "ComplexModule",
+      "c99name": "ComplexModule",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_ComplexModule",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics"
+      ]
+    },
+    {
+      "name": "Numerics",
+      "c99name": "Numerics",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_Numerics",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "Numerics"
+      ]
+    },
+    {
+      "name": "RealModule",
+      "c99name": "RealModule",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_RealModule",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics",
+        "RealModule"
+      ]
+    },
+    {
+      "name": "_NumericsShims",
+      "c99name": "_NumericsShims",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_numerics//:Sources__NumericsShims",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics",
+        "RealModule"
+      ]
+    },
+    {
+      "name": "OpenAPIRuntime",
+      "c99name": "OpenAPIRuntime",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
+      "package_identity": "swift-openapi-runtime",
+      "product_memberships": [
+        "OpenAPIRuntime"
+      ]
+    },
+    {
+      "name": "CYaml",
+      "c99name": "CYaml",
+      "src_type": "clang",
+      "label": "@swiftpkg_yams//:Sources_CYaml",
+      "package_identity": "yams",
+      "product_memberships": [
+        "Yams"
+      ]
+    },
+    {
+      "name": "Yams",
+      "c99name": "Yams",
+      "src_type": "swift",
+      "label": "@swiftpkg_yams//:Sources_Yams",
+      "package_identity": "yams",
+      "product_memberships": [
+        "Yams"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKit"
+      ]
+    },
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKit30",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKit30"
+      ]
+    },
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKitCompat",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat"
+      ]
+    },
+    {
+      "identity": "swift-algorithms",
+      "name": "Algorithms",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_algorithms//:Sources_Algorithms"
+      ]
+    },
+    {
+      "identity": "swift-argument-parser",
+      "name": "ArgumentParser",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser"
+      ]
+    },
+    {
+      "identity": "swift-argument-parser",
+      "name": "GenerateManual",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_argument_parser//:Plugins_GenerateManual"
+      ]
+    },
+    {
+      "identity": "swift-docc-plugin",
+      "name": "Swift-DocC",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_docc_plugin//:Plugins_Swift-DocC Convert_Swift-DocC"
+      ]
+    },
+    {
+      "identity": "swift-docc-plugin",
+      "name": "Swift-DocC Preview",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_docc_plugin//:Plugins_Swift-DocC Preview"
+      ]
+    },
+    {
+      "identity": "swift-docc-symbolkit",
+      "name": "SymbolKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_docc_symbolkit//:Sources_SymbolKit"
+      ]
+    },
+    {
+      "identity": "swift-http-types",
+      "name": "HTTPTypes",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_http_types//:Sources_HTTPTypes"
+      ]
+    },
+    {
+      "identity": "swift-http-types",
+      "name": "HTTPTypesFoundation",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_http_types//:Sources_HTTPTypesFoundation"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "ComplexModule",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_ComplexModule"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "Numerics",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_Numerics"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "RealModule",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_RealModule"
+      ]
+    },
+    {
+      "identity": "swift-openapi-runtime",
+      "name": "OpenAPIRuntime",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"
+      ]
+    },
+    {
+      "identity": "yams",
+      "name": "Yams",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_yams//:Sources_Yams"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "name": "swiftpkg_openapikit",
+      "identity": "openapikit",
+      "remote": {
+        "commit": "b00b08d05e6fba0e156c06be3332b9774e172afd",
+        "remote": "https://github.com/mattpolzin/OpenAPIKit.git",
+        "version": "3.1.1"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_algorithms",
+      "identity": "swift-algorithms",
+      "remote": {
+        "commit": "f6919dfc309e7f1b56224378b11e28bab5bccc42",
+        "remote": "https://github.com/apple/swift-algorithms",
+        "version": "1.2.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_argument_parser",
+      "identity": "swift-argument-parser",
+      "remote": {
+        "commit": "8f4d2753f0e4778c76d5f05ad16c74f707390531",
+        "remote": "https://github.com/apple/swift-argument-parser.git",
+        "version": "1.2.3"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_docc_plugin",
+      "identity": "swift-docc-plugin",
+      "remote": {
+        "commit": "26ac5758409154cc448d7ab82389c520fa8a8247",
+        "remote": "https://github.com/apple/swift-docc-plugin",
+        "version": "1.3.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_docc_symbolkit",
+      "identity": "swift-docc-symbolkit",
+      "remote": {
+        "commit": "b45d1f2ed151d057b54504d653e0da5552844e34",
+        "remote": "https://github.com/apple/swift-docc-symbolkit",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_http_types",
+      "identity": "swift-http-types",
+      "remote": {
+        "commit": "1827dc94bdab2eb5f2fc804e9b0cb43574282566",
+        "remote": "https://github.com/apple/swift-http-types",
+        "version": "1.0.2"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_numerics",
+      "identity": "swift-numerics",
+      "remote": {
+        "commit": "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "remote": "https://github.com/apple/swift-numerics.git",
+        "version": "1.0.2"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_openapi_runtime",
+      "identity": "swift-openapi-runtime",
+      "remote": {
+        "commit": "7d1644b125c02be1bedcfe1a69b58fae881b2393",
+        "remote": "https://github.com/apple/swift-openapi-runtime",
+        "version": "1.0.0-alpha.1"
+      }
+    },
+    {
+      "name": "swiftpkg_yams",
+      "identity": "yams",
+      "remote": {
+        "commit": "0d9ee7ea8c4ebd4a489ad7a73d5c6cad55d6fed3",
+        "remote": "https://github.com/jpsim/Yams.git",
+        "version": "5.0.6"
+      }
+    }
+  ]
+}

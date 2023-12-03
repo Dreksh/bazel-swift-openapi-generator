@@ -1,0 +1,484 @@
+diff --git a/.gitignore b/.gitignore
+index f6f5465..e05e9b6 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -9,3 +9,4 @@ DerivedData/
+ /Package.resolved
+ .ci/
+ .docc-build/
++/bazel-*
+diff --git a/BUILD.bazel b/BUILD.bazel
+new file mode 100644
+index 0000000..690b968
+--- /dev/null
++++ b/BUILD.bazel
+@@ -0,0 +1,27 @@
++# Copied from https://github.com/cgrindel/rules_swift_package_manager/tree/main
++
++load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
++load("@rules_swift_package_manager//swiftpkg:defs.bzl", "swift_update_packages")
++
++swift_update_packages(
++    name = "update_deps",
++    gazelle = ":gazelle_bin",
++    generate_swift_deps_for_workspace = False,
++    package_manifest = "Package.swift",
++    update_bzlmod_stanzas = True,
++)
++
++# gazelle:exclude .build
++# gazelle:exclude Sources/swift-openapi-generator/Documentation.docc
++gazelle_binary(
++    name = "gazelle_bin",
++    languages = [
++        "@rules_swift_package_manager//gazelle",
++    ],
++    visibility = ["//visibility:public"],
++)
++
++gazelle(
++    name = "create_build_files",
++    gazelle = ":gazelle_bin",
++)
+diff --git a/Examples/GreetingService/Sources/GreetingService/BUILD.bazel b/Examples/GreetingService/Sources/GreetingService/BUILD.bazel
+new file mode 100644
+index 0000000..1367c56
+--- /dev/null
++++ b/Examples/GreetingService/Sources/GreetingService/BUILD.bazel
+@@ -0,0 +1,9 @@
++load("@rules_swift//swift:swift.bzl", "swift_binary")
++
++swift_binary(
++    name = "GreetingService",
++    srcs = ["GreetingService.swift"],
++    module_name = "GreetingService",
++    visibility = ["//visibility:public"],
++    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
++)
+diff --git a/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel b/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel
+new file mode 100644
+index 0000000..a6d13fc
+--- /dev/null
++++ b/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel
+@@ -0,0 +1,11 @@
++load("@rules_swift//swift:swift.bzl", "swift_test")
++
++swift_test(
++    name = "GreetingServiceMockTests",
++    srcs = [
++        "MockGreetingService.swift",
++        "MockGreetingServiceTests.swift",
++    ],
++    module_name = "GreetingServiceMockTests",
++    deps = ["//Examples/GreetingService/Sources/GreetingService"],
++)
+diff --git a/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel b/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel
+new file mode 100644
+index 0000000..fcb5a1f
+--- /dev/null
++++ b/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel
+@@ -0,0 +1,9 @@
++load("@rules_swift//swift:swift.bzl", "swift_binary")
++
++swift_binary(
++    name = "GreetingServiceClient",
++    srcs = ["GreetingServiceClient.swift"],
++    module_name = "GreetingServiceClient",
++    visibility = ["//visibility:public"],
++    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
++)
+diff --git a/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel b/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel
+new file mode 100644
+index 0000000..144d498
+--- /dev/null
++++ b/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel
+@@ -0,0 +1,11 @@
++load("@rules_swift//swift:swift.bzl", "swift_test")
++
++swift_test(
++    name = "GreetingServiceMockTests",
++    srcs = [
++        "MockGreetingService.swift",
++        "MockGreetingServiceTests.swift",
++    ],
++    module_name = "GreetingServiceMockTests",
++    deps = ["//Examples/GreetingServiceClient/Sources/GreetingServiceClient"],
++)
+diff --git a/IntegrationTest/Sources/Client/BUILD.bazel b/IntegrationTest/Sources/Client/BUILD.bazel
+new file mode 100644
+index 0000000..2e5bbe2
+--- /dev/null
++++ b/IntegrationTest/Sources/Client/BUILD.bazel
+@@ -0,0 +1,8 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "Client",
++    srcs = ["Empty.swift"],
++    module_name = "Client",
++    visibility = ["//visibility:public"],
++)
+diff --git a/IntegrationTest/Sources/MockTransportClient/BUILD.bazel b/IntegrationTest/Sources/MockTransportClient/BUILD.bazel
+new file mode 100644
+index 0000000..99501ea
+--- /dev/null
++++ b/IntegrationTest/Sources/MockTransportClient/BUILD.bazel
+@@ -0,0 +1,13 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "MockTransportClient",
++    srcs = ["Client.swift"],
++    module_name = "MockTransportClient",
++    visibility = ["//visibility:public"],
++    deps = [
++        "//IntegrationTest/Sources/Client",
++        "//IntegrationTest/Sources/Types",
++        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++    ],
++)
+diff --git a/IntegrationTest/Sources/MockTransportServer/BUILD.bazel b/IntegrationTest/Sources/MockTransportServer/BUILD.bazel
+new file mode 100644
+index 0000000..4716d60
+--- /dev/null
++++ b/IntegrationTest/Sources/MockTransportServer/BUILD.bazel
+@@ -0,0 +1,13 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "MockTransportServer",
++    srcs = ["Server.swift"],
++    module_name = "MockTransportServer",
++    visibility = ["//visibility:public"],
++    deps = [
++        "//IntegrationTest/Sources/Server",
++        "//IntegrationTest/Sources/Types",
++        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++    ],
++)
+diff --git a/IntegrationTest/Sources/Server/BUILD.bazel b/IntegrationTest/Sources/Server/BUILD.bazel
+new file mode 100644
+index 0000000..dd8c037
+--- /dev/null
++++ b/IntegrationTest/Sources/Server/BUILD.bazel
+@@ -0,0 +1,8 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "Server",
++    srcs = ["Empty.swift"],
++    module_name = "Server",
++    visibility = ["//visibility:public"],
++)
+diff --git a/IntegrationTest/Sources/Types/BUILD.bazel b/IntegrationTest/Sources/Types/BUILD.bazel
+new file mode 100644
+index 0000000..dccba42
+--- /dev/null
++++ b/IntegrationTest/Sources/Types/BUILD.bazel
+@@ -0,0 +1,8 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "Types",
++    srcs = ["Empty.swift"],
++    module_name = "Types",
++    visibility = ["//visibility:public"],
++)
+diff --git a/Plugins/OpenAPIGenerator/BUILD.bazel b/Plugins/OpenAPIGenerator/BUILD.bazel
+new file mode 100644
+index 0000000..80c770f
+--- /dev/null
++++ b/Plugins/OpenAPIGenerator/BUILD.bazel
+@@ -0,0 +1,8 @@
++load("@rules_swift//swift:swift.bzl", "swift_binary")
++
++swift_binary(
++    name = "OpenAPIGenerator",
++    srcs = ["plugin.swift"],
++    module_name = "OpenAPIGenerator",
++    visibility = ["//visibility:public"],
++)
+diff --git a/Plugins/OpenAPIGeneratorCommand/BUILD.bazel b/Plugins/OpenAPIGeneratorCommand/BUILD.bazel
+new file mode 100644
+index 0000000..daef482
+--- /dev/null
++++ b/Plugins/OpenAPIGeneratorCommand/BUILD.bazel
+@@ -0,0 +1,8 @@
++load("@rules_swift//swift:swift.bzl", "swift_binary")
++
++swift_binary(
++    name = "OpenAPIGeneratorCommand",
++    srcs = ["plugin.swift"],
++    module_name = "OpenAPIGeneratorCommand",
++    visibility = ["//visibility:public"],
++)
+diff --git a/Plugins/PluginsShared/BUILD.bazel b/Plugins/PluginsShared/BUILD.bazel
+new file mode 100644
+index 0000000..6f45956
+--- /dev/null
++++ b/Plugins/PluginsShared/BUILD.bazel
+@@ -0,0 +1,11 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "PluginsShared",
++    srcs = [
++        "PluginError.swift",
++        "PluginUtils.swift",
++    ],
++    module_name = "PluginsShared",
++    visibility = ["//visibility:public"],
++)
+diff --git a/Sources/PetstoreConsumerTestCore/BUILD.bazel b/Sources/PetstoreConsumerTestCore/BUILD.bazel
+new file mode 100644
+index 0000000..22d7b4e
+--- /dev/null
++++ b/Sources/PetstoreConsumerTestCore/BUILD.bazel
+@@ -0,0 +1,14 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "PetstoreConsumerTestCore",
++    srcs = [
++        "Assertions.swift",
++        "Common.swift",
++        "TestClientTransport.swift",
++        "TestServerTransport.swift",
++    ],
++    module_name = "PetstoreConsumerTestCore",
++    visibility = ["//visibility:public"],
++    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
++)
+diff --git a/Sources/_OpenAPIGeneratorCore/BUILD.bazel b/Sources/_OpenAPIGeneratorCore/BUILD.bazel
+new file mode 100644
+index 0000000..ab1271b
+--- /dev/null
++++ b/Sources/_OpenAPIGeneratorCore/BUILD.bazel
+@@ -0,0 +1,102 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "_OpenAPIGeneratorCore",
++    srcs = [
++        "Config.swift",
++        "Diagnostics.swift",
++        "Errors.swift",
++        "Extensions/Foundation.swift",
++        "Extensions/OpenAPIKit.swift",
++        "Extensions/String.swift",
++        "Extensions/SwiftStandardLibrary.swift",
++        "FeatureFlags.swift",
++        "GeneratorMode.swift",
++        "GeneratorPipeline.swift",
++        "GeneratorPipelineStage.swift",
++        "Hooks/DocumentFilter.swift",
++        "Hooks/FilteredDocument.swift",
++        "Layers/ParsedOpenAPIRepresentation.swift",
++        "Layers/RenderedSwiftRepresentation.swift",
++        "Layers/StructuredSwiftRepresentation.swift",
++        "Parser/ParserProtocol.swift",
++        "Parser/YamsParser.swift",
++        "Parser/validateDoc.swift",
++        "PlatformChecks.swift",
++        "Renderer/RendererProtocol.swift",
++        "Renderer/TextBasedRenderer.swift",
++        "Translator/ClientTranslator/ClientTranslator.swift",
++        "Translator/ClientTranslator/translateClientMethod.swift",
++        "Translator/CommonTranslations/SwiftSafeNames.swift",
++        "Translator/CommonTranslations/translateAllAnyOneOf.swift",
++        "Translator/CommonTranslations/translateArray.swift",
++        "Translator/CommonTranslations/translateCodable.swift",
++        "Translator/CommonTranslations/translateObjectStruct.swift",
++        "Translator/CommonTranslations/translateRawRepresentableEnum.swift",
++        "Translator/CommonTranslations/translateSchema.swift",
++        "Translator/CommonTranslations/translateStringEnum.swift",
++        "Translator/CommonTranslations/translateStructBlueprint.swift",
++        "Translator/CommonTranslations/translateTypealias.swift",
++        "Translator/CommonTypes/Annotations.swift",
++        "Translator/CommonTypes/CommentExtensions.swift",
++        "Translator/CommonTypes/Constants.swift",
++        "Translator/CommonTypes/DiscriminatorExtensions.swift",
++        "Translator/CommonTypes/SchemaOverrides.swift",
++        "Translator/CommonTypes/StructBlueprint.swift",
++        "Translator/Content/CodingStrategy.swift",
++        "Translator/Content/ContentInspector.swift",
++        "Translator/Content/ContentType.swift",
++        "Translator/Content/SchemaContent.swift",
++        "Translator/FileTranslator.swift",
++        "Translator/FileTranslator+FeatureFlags.swift",
++        "Translator/Multipart/MultipartAdditionalProperties.swift",
++        "Translator/Multipart/MultipartContent.swift",
++        "Translator/Multipart/MultipartContentInspector.swift",
++        "Translator/Multipart/translateMultipart.swift",
++        "Translator/MultiplexTranslator.swift",
++        "Translator/Operations/OperationDescription.swift",
++        "Translator/Parameters/TypedParameter.swift",
++        "Translator/Parameters/translateParameter.swift",
++        "Translator/Recursion/DeclarationRecursionDetector.swift",
++        "Translator/Recursion/RecursionDetector.swift",
++        "Translator/RequestBody/TypedRequestBody.swift",
++        "Translator/RequestBody/translateRequestBody.swift",
++        "Translator/Responses/HTTPStatusCodes.swift",
++        "Translator/Responses/ResponseKind.swift",
++        "Translator/Responses/TypedResponse.swift",
++        "Translator/Responses/TypedResponseHeader.swift",
++        "Translator/Responses/acceptHeaderContentTypes.swift",
++        "Translator/Responses/translateResponse.swift",
++        "Translator/Responses/translateResponseHeader.swift",
++        "Translator/Responses/translateResponseOutcome.swift",
++        "Translator/ServerTranslator/ServerTranslator.swift",
++        "Translator/ServerTranslator/translateServerMethod.swift",
++        "Translator/TranslatorProtocol.swift",
++        "Translator/TypeAssignment/Builtins.swift",
++        "Translator/TypeAssignment/ReferenceStack.swift",
++        "Translator/TypeAssignment/TypeAssigner.swift",
++        "Translator/TypeAssignment/TypeLocation.swift",
++        "Translator/TypeAssignment/TypeMatcher.swift",
++        "Translator/TypeAssignment/TypeName.swift",
++        "Translator/TypeAssignment/TypeUsage.swift",
++        "Translator/TypeAssignment/isSchemaSupported.swift",
++        "Translator/TypesTranslator/TypesFileTranslator.swift",
++        "Translator/TypesTranslator/translateAPIProtocol.swift",
++        "Translator/TypesTranslator/translateBoxedTypes.swift",
++        "Translator/TypesTranslator/translateComponentHeaders.swift",
++        "Translator/TypesTranslator/translateComponentParameters.swift",
++        "Translator/TypesTranslator/translateComponentRequestBodies.swift",
++        "Translator/TypesTranslator/translateComponentResponses.swift",
++        "Translator/TypesTranslator/translateComponents.swift",
++        "Translator/TypesTranslator/translateOperations.swift",
++        "Translator/TypesTranslator/translateSchemas.swift",
++        "Translator/TypesTranslator/translateServers.swift",
++    ],
++    module_name = "_OpenAPIGeneratorCore",
++    visibility = ["//visibility:public"],
++    deps = [
++        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
++        "@swiftpkg_swift_algorithms//:Sources_Algorithms",
++        "@swiftpkg_yams//:Sources_Yams",
++    ],
++)
+diff --git a/Sources/swift-openapi-generator/BUILD.bazel b/Sources/swift-openapi-generator/BUILD.bazel
+new file mode 100644
+index 0000000..ddc3f1c
+--- /dev/null
++++ b/Sources/swift-openapi-generator/BUILD.bazel
+@@ -0,0 +1,24 @@
++load("@rules_swift//swift:swift.bzl", "swift_binary")
++
++swift_binary(
++    name = "swift-openapi-generator",
++    srcs = [
++        "Extensions.swift",
++        "FilterCommand.swift",
++        "GenerateCommand.swift",
++        "GenerateOptions.swift",
++        "GenerateOptions+runGenerator.swift",
++        "PluginSource.swift",
++        "Tool.swift",
++        "UserConfig.swift",
++        "YamlFileDiagnosticsCollector.swift",
++        "runGenerator.swift",
++    ],
++    visibility = ["//visibility:public"],
++    deps = [
++        "//Sources/_OpenAPIGeneratorCore",
++        "@swiftpkg_openapikit//:Sources_OpenAPIKit",
++        "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser",
++        "@swiftpkg_yams//:Sources_Yams",
++    ],
++)
+diff --git a/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel b/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel
+new file mode 100644
+index 0000000..8eaffd7
+--- /dev/null
++++ b/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel
+@@ -0,0 +1,34 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "OpenAPIGeneratorCoreTests",
++    srcs = [
++        "Extensions/Test_String.swift",
++        "Hooks/Test_FilteredDocument.swift",
++        "Parser/Test_YamsParser.swift",
++        "Parser/Test_validateDoc.swift",
++        "Renderer/Test_TextBasedRenderer.swift",
++        "StructureHelpers.swift",
++        "TestUtilities.swift",
++        "Test_Config.swift",
++        "Translator/CommonTranslations/Test_translateCodable.swift",
++        "Translator/CommonTranslations/Test_translateStringEnum.swift",
++        "Translator/CommonTranslations/Test_translateStructBlueprint.swift",
++        "Translator/CommonTypes/Test_DiscriminatorExtensions.swift",
++        "Translator/Content/Test_ContentType.swift",
++        "Translator/Multipart/Test_MultipartAdditionalProperties.swift",
++        "Translator/Multipart/Test_MultipartContentInspector.swift",
++        "Translator/Operations/Test_OperationDescription.swift",
++        "Translator/TypeAssignment/Test_RecursionDetector_Generic.swift",
++        "Translator/TypeAssignment/Test_TypeAssigner.swift",
++        "Translator/TypeAssignment/Test_TypeMatcher.swift",
++        "Translator/TypeAssignment/Test_isSchemaSupported.swift",
++        "Translator/TypesTranslator/Test_translateSchemas.swift",
++    ],
++    module_name = "OpenAPIGeneratorCoreTests",
++    visibility = ["//visibility:public"],
++    deps = [
++        "@swiftpkg_openapikit//:Sources_OpenAPIKit",
++        "@swiftpkg_yams//:Sources_Yams",
++    ],
++)
+diff --git a/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
+new file mode 100644
+index 0000000..9fc8868
+--- /dev/null
++++ b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
+@@ -0,0 +1,20 @@
++load("@rules_swift//swift:swift.bzl", "swift_test")
++
++swift_test(
++    name = "OpenAPIGeneratorReferenceTests",
++    srcs = [
++        "CompatabilityTest.swift",
++        "FileBasedReferenceTests.swift",
++        "Resources/ReferenceSources/Petstore/Client.swift",
++        "Resources/ReferenceSources/Petstore/Server.swift",
++        "Resources/ReferenceSources/Petstore/Types.swift",
++        "SnippetBasedReferenceTests.swift",
++        "XCTestDiagnosticCollector.swift",
++    ],
++    module_name = "OpenAPIGeneratorReferenceTests",
++    deps = [
++        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
++        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++        "@swiftpkg_yams//:Sources_Yams",
++    ],
++)
+diff --git a/Tests/PetstoreConsumerTests/BUILD.bazel b/Tests/PetstoreConsumerTests/BUILD.bazel
+new file mode 100644
+index 0000000..c870a2f
+--- /dev/null
++++ b/Tests/PetstoreConsumerTests/BUILD.bazel
+@@ -0,0 +1,20 @@
++load("@rules_swift//swift:swift.bzl", "swift_library")
++
++swift_library(
++    name = "PetstoreConsumerTests",
++    srcs = [
++        "Common.swift",
++        "TestClient.swift",
++        "TestServer.swift",
++        "Test_Client.swift",
++        "Test_Playground.swift",
++        "Test_Server.swift",
++        "Test_Types.swift",
++    ],
++    module_name = "PetstoreConsumerTests",
++    visibility = ["//visibility:public"],
++    deps = [
++        "//Sources/PetstoreConsumerTestCore",
++        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++    ],
++)
+diff --git a/WORKSPACE b/WORKSPACE
+new file mode 100644
+index 0000000..e69de29

@@ -1,0 +1,8 @@
+module(name = "swift-openapi-generator", version = "{VERSION}")
+
+load_code = use_extension("//:extensions.bzl", "load_code")
+use_repo(
+    load_code,
+    "swift-openapi-generator-code",
+)
+
