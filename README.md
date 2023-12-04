@@ -15,34 +15,14 @@ Here are the instructions for quickly using the generator:
 
 ### Adding the Module
 
-Since this is not in the bazel repository yet, the module will need to be added as an extension.
-This requires modifying/creating the `extensions.bzl` file, and updating the `MODULE.bazel` to use it.
+There is a [known issue](#not-hosted-in-a-bazel-repository) where this module can't be manually added
+into the `MODULE.bazel` file.
+The current method is to follow modify the `WORKSPACE` file, not relying on Bazel's module system.
 
-The steps to do this is:
-1. Add this to the `extensions.bzl` file:
+When the issue is resolved, and this module is added to a Bazel repository,
+the dependency is added by inserting this line into `MODULE.bazel`:
 ```skylark
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-def _load_swift_openapi_generator_impl(module_ctx):
-    http_archive(
-        name = "swift-openapi-generator",
-        url = "https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/1.0.0-alpha.1.tar.gz",
-        # sha256 = "dc79d7779357f387a94f59e55a64cb041c13828a6318b99931f154122f66d600", # TBD
-        strip_prefix = "swift-openapi-generator-1.0.0-alpha.1",
-    )
-
-load_swift_openapi_generator = module_extension(
-    implementation = _swift_openapi_generator_impl,
-    doc = "Fetches the bazel repo that is not currently in any bazel repo.",
-)
-```
-2. Add this to the `MODULE.bazel` file:
-```skylark
-load_swift_openapi_generator = use_extension("//:extensions.bzl", "load_swift_openapi_generator")
-use_repo(
-    load_swift_openapi_generator,
-    "swift-openapi-generator",
-)
+bazel_dep(name = "swift-openapi-generator", version = "1.0.0-alpha1")
 ```
 
 ### Using the Rule
@@ -99,4 +79,25 @@ single_version_override(
     patches = ["//:rules_swift_package_manager.patch"],
     patch_strip = 1, # Remove 1 directory level, as it's a git diff
 )
+```
+
+### Not Hosted in a Bazel Repository
+
+Since this is not in the bazel repository yet, the module will need to be added via the WORKSPACE.
+This is due to the `swift-openapi-generator` bazel module containing another repository dependency, which requires
+Accessing the `@swift-openapi-generator//:extensions.bzl` file to load.
+
+The steps to do this is:
+1. Add this to the `WORKSPACE` file:
+```skylark
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "swift-openapi-generator",
+    url = "https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/v1.0.0-alpha.1.tar.gz",
+    # sha256 = "5ddbe9c50cb72017e93b83531af6dd5f580b04e3f2e922a093af4e609db35dfa", (SHA not known at time of writing)
+    strip_prefix = "bazel-swift-openapi-generator-1.0.0-alpha.1",
+)
+load("@swift-openapi-generator//:extensions.bzl", _load_code = "_load_code_impl")
+_load_code()
 ```
