@@ -26,7 +26,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 def _load_swift_openapi_generator_impl(module_ctx):
     http_archive(
         name = "swift-openapi-generator",
-        url = "https://github.com/Dreksh/swift-openapi-generator/archive/refs/tags/1.0.0-alpha.1.tar.gz",
+        url = "https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/1.0.0-alpha.1.tar.gz",
         # sha256 = "dc79d7779357f387a94f59e55a64cb041c13828a6318b99931f154122f66d600", # TBD
         strip_prefix = "swift-openapi-generator-1.0.0-alpha.1",
     )
