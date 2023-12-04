@@ -9,9 +9,58 @@ Usage
 For more examples, see [Examples](./examples).
 
 Here are the instructions for quickly using the generator:
-1. A
-1. B
-1. C
+1. [Adding the module in your `MODULE.bazel`](#adding-the-module)
+2. [Apply a rules\_swift\_package\_manager workaround](#common-swift-dependencies)
+3. [Using the swift\_openapi\_generate rule](#using-the-rule)
+
+### Adding the Module
+
+Since this is not in the bazel repository yet, the module will need to be added as an extension.
+This requires modifying/creating the `extensions.bzl` file, and updating the `MODULE.bazel` to use it.
+
+The steps to do this is:
+1. Add this to the `extensions.bzl` file:
+```skylark
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+def _load_swift_openapi_generator_impl(module_ctx):
+    http_archive(
+        name = "swift-openapi-generator",
+        url = "https://github.com/Dreksh/swift-openapi-generator/archive/refs/tags/1.0.0-alpha.1.tar.gz",
+        # sha256 = "dc79d7779357f387a94f59e55a64cb041c13828a6318b99931f154122f66d600", # TBD
+        strip_prefix = "swift-openapi-generator-1.0.0-alpha.1",
+    )
+
+load_swift_openapi_generator = module_extension(
+    implementation = _swift_openapi_generator_impl,
+    doc = "Fetches the bazel repo that is not currently in any bazel repo.",
+)
+```
+2. Add this to the `MODULE.bazel` file:
+```skylark
+load_swift_openapi_generator = use_extension("//:extensions.bzl", "load_swift_openapi_generator")
+use_repo(
+    load_swift_openapi_generator,
+    "swift-openapi-generator",
+)
+```
+
+### Using the Rule
+
+In the Bazel package where you want to generate the Swift code from OpenAPI specs, add these lines:
+```skylark
+load("@swift-openapi-generator//:defs.bzl", "swift_openapi_generate")
+
+swift_openapi_generate(
+    name = "server_stub",
+    spec = "openapi.yaml",
+    config = "openapi-generator-config.yaml",
+)
+```
+
+The name of the rule determines the directory where the files will be placed when it's generated.
+`openapi.yaml` is the spec to generate code for, and `openapi-generator-config.yaml` configures
+the generator (see [Configuring the generator](https://swiftpackageindex.com/apple/swift-openapi-generator/1.0.0-alpha.1/documentation/swift-openapi-generator/configuring-the-generator) )
 
 Updating the Version
 --------------------
@@ -24,3 +73,30 @@ This script currently requires the following tools installed:
 - `curl`
 - `git`
 - `swift` (or Xcode for macOS)
+
+Issues and Their Workarounds
+----------------------------
+
+There are some known issues which require some workarounds.
+
+### Common Swift Dependencies
+
+The `swift_deps` extension from `rules_swift_package_manager` will attempt to add all dependencies specified
+in each module's `swift_deps_index.json`. If multiple modules share some set of Swift libraries as their
+depdency, it will attempt to create the same repository target causing Bazel to error.
+
+To work around this, there is a `rules_swift_package_manager.patch` file in this repository, generated from
+`v0.22.0`, that adds a simple deduplication of libraries. This allows each one to only be specified once.
+The downside of this patch is that the deduplication does not take into account of the versions, and so either
+version of the depdnency may be used.
+
+Steps to apply the workaround:
+1. Copy the `rules_swift_package_manager.patch` to your local repository (patches require to be local to the repo)
+2. Add this in `MODULE.bazel`, under `bazel_dep(name = "rules_swift_package_manager",...)`:
+```skylark
+single_version_override(
+    module_name = "rules_swift_package_manager",
+    patches = ["//:rules_swift_package_manager.patch"],
+    patch_strip = 1, # Remove 1 directory level, as it's a git diff
+)
+```

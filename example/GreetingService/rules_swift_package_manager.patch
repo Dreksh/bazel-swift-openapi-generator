@@ -1,0 +1,34 @@
+diff --git a/swiftpkg/bzlmod/swift_deps.bzl b/swiftpkg/bzlmod/swift_deps.bzl
+index 6a1bbf7..b032c97 100644
+--- a/swiftpkg/bzlmod/swift_deps.bzl
++++ b/swiftpkg/bzlmod/swift_deps.bzl
+@@ -54,21 +54,26 @@ def _declare_pkg_from_package(package, deps_index_label, config_pkg):
+             package.identity,
+         ))
+ 
+-def _declare_pkgs_from_file(module_ctx, from_file, config_pkgs):
++def _declare_pkgs_from_file(module_ctx, from_file, config_pkgs, declared_pkgs):
+     index_json = module_ctx.read(from_file.deps_index)
+     deps_index = deps_indexes.new_from_json(index_json)
+-    for package in deps_index.packages_by_id.values():
++    new_pkgs = [name for name in deps_index.packages_by_id.keys() if name not in declared_pkgs]
++    for package_id in new_pkgs:
++        package = deps_index.packages_by_id[package_id]
+         config_pkg = config_pkgs.get(package.name)
+         _declare_pkg_from_package(package, from_file.deps_index, config_pkg)
++    return new_pkgs
+ 
+ def _swift_deps_impl(module_ctx):
+     config_pkgs = {}
+     for mod in module_ctx.modules:
+         for config_pkg in mod.tags.configure_package:
+             config_pkgs[config_pkg.name] = config_pkg
++    declared_pkgs = []
+     for mod in module_ctx.modules:
+         for from_file in mod.tags.from_file:
+-            _declare_pkgs_from_file(module_ctx, from_file, config_pkgs)
++            new_pkgs = _declare_pkgs_from_file(module_ctx, from_file, config_pkgs, declared_pkgs)
++            declared_pkgs.extend(new_pkgs)
+ 
+ _from_file_tag = tag_class(
+     attrs = {

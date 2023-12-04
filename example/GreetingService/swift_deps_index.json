@@ -1,0 +1,1708 @@
+{
+  "direct_dep_identities": [
+    "swift-openapi-generator",
+    "swift-openapi-runtime",
+    "swift-openapi-vapor",
+    "vapor"
+  ],
+  "modules": [
+    {
+      "name": "AsyncHTTPClient",
+      "c99name": "AsyncHTTPClient",
+      "src_type": "swift",
+      "label": "@swiftpkg_async_http_client//:Sources_AsyncHTTPClient",
+      "package_identity": "async-http-client",
+      "product_memberships": [
+        "AsyncHTTPClient"
+      ]
+    },
+    {
+      "name": "CAsyncHTTPClient",
+      "c99name": "CAsyncHTTPClient",
+      "src_type": "clang",
+      "label": "@swiftpkg_async_http_client//:Sources_CAsyncHTTPClient",
+      "package_identity": "async-http-client",
+      "product_memberships": [
+        "AsyncHTTPClient"
+      ]
+    },
+    {
+      "name": "AsyncKit",
+      "c99name": "AsyncKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_async_kit//:Sources_AsyncKit",
+      "package_identity": "async-kit",
+      "product_memberships": [
+        "AsyncKit"
+      ]
+    },
+    {
+      "name": "ConsoleKit",
+      "c99name": "ConsoleKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_console_kit//:Sources_ConsoleKit",
+      "package_identity": "console-kit",
+      "product_memberships": [
+        "ConsoleKit"
+      ]
+    },
+    {
+      "name": "ConsoleKitCommands",
+      "c99name": "ConsoleKitCommands",
+      "src_type": "swift",
+      "label": "@swiftpkg_console_kit//:Sources_ConsoleKitCommands",
+      "package_identity": "console-kit",
+      "product_memberships": [
+        "ConsoleKit",
+        "ConsoleKitCommands"
+      ]
+    },
+    {
+      "name": "ConsoleKitTerminal",
+      "c99name": "ConsoleKitTerminal",
+      "src_type": "swift",
+      "label": "@swiftpkg_console_kit//:Sources_ConsoleKitTerminal",
+      "package_identity": "console-kit",
+      "product_memberships": [
+        "ConsoleKit",
+        "ConsoleKitTerminal",
+        "ConsoleKitCommands"
+      ]
+    },
+    {
+      "name": "MultipartKit",
+      "c99name": "MultipartKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_multipart_kit//:Sources_MultipartKit",
+      "package_identity": "multipart-kit",
+      "product_memberships": [
+        "MultipartKit"
+      ]
+    },
+    {
+      "name": "OpenAPIKit",
+      "c99name": "OpenAPIKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKit",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKit30",
+      "c99name": "OpenAPIKit30",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKit30",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit30",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKitCompat",
+      "c99name": "OpenAPIKitCompat",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "OpenAPIKitCore",
+      "c99name": "OpenAPIKitCore",
+      "src_type": "swift",
+      "label": "@swiftpkg_openapikit//:Sources_OpenAPIKitCore",
+      "package_identity": "openapikit",
+      "product_memberships": [
+        "OpenAPIKit30",
+        "OpenAPIKit",
+        "OpenAPIKitCompat"
+      ]
+    },
+    {
+      "name": "RoutingKit",
+      "c99name": "RoutingKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_routing_kit//:Sources_RoutingKit",
+      "package_identity": "routing-kit",
+      "product_memberships": [
+        "RoutingKit"
+      ]
+    },
+    {
+      "name": "Algorithms",
+      "c99name": "Algorithms",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_algorithms//:Sources_Algorithms",
+      "package_identity": "swift-algorithms",
+      "product_memberships": [
+        "Algorithms"
+      ]
+    },
+    {
+      "name": "GenerateManual",
+      "c99name": "GenerateManual",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_argument_parser//:Plugins_GenerateManual",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "ArgumentParser",
+      "c99name": "ArgumentParser",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "ArgumentParser",
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "ArgumentParserToolInfo",
+      "c99name": "ArgumentParserToolInfo",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Sources_ArgumentParserToolInfo",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "ArgumentParser",
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "generate-manual",
+      "c99name": "generate_manual",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_argument_parser//:Tools_generate-manual",
+      "package_identity": "swift-argument-parser",
+      "product_memberships": [
+        "GenerateManual"
+      ]
+    },
+    {
+      "name": "Atomics",
+      "c99name": "Atomics",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_atomics//:Sources_Atomics",
+      "package_identity": "swift-atomics",
+      "product_memberships": [
+        "Atomics"
+      ]
+    },
+    {
+      "name": "_AtomicsShims",
+      "c99name": "_AtomicsShims",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_atomics//:Sources__AtomicsShims",
+      "package_identity": "swift-atomics",
+      "product_memberships": [
+        "Atomics"
+      ]
+    },
+    {
+      "name": "Collections",
+      "c99name": "Collections",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_collections//:Sources_Collections",
+      "package_identity": "swift-collections",
+      "product_memberships": [
+        "Collections"
+      ]
+    },
+    {
+      "name": "DequeModule",
+      "c99name": "DequeModule",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_collections//:Sources_DequeModule",
+      "package_identity": "swift-collections",
+      "product_memberships": [
+        "Collections",
+        "DequeModule"
+      ]
+    },
+    {
+      "name": "OrderedCollections",
+      "c99name": "OrderedCollections",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_collections//:Sources_OrderedCollections",
+      "package_identity": "swift-collections",
+      "product_memberships": [
+        "Collections",
+        "OrderedCollections"
+      ]
+    },
+    {
+      "name": "CCryptoBoringSSL",
+      "c99name": "CCryptoBoringSSL",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_crypto//:Sources_CCryptoBoringSSL",
+      "package_identity": "swift-crypto",
+      "product_memberships": [
+        "Crypto",
+        "_CryptoExtras"
+      ]
+    },
+    {
+      "name": "CCryptoBoringSSLShims",
+      "c99name": "CCryptoBoringSSLShims",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_crypto//:Sources_CCryptoBoringSSLShims",
+      "package_identity": "swift-crypto",
+      "product_memberships": [
+        "Crypto",
+        "_CryptoExtras"
+      ]
+    },
+    {
+      "name": "Crypto",
+      "c99name": "Crypto",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_crypto//:Sources_Crypto",
+      "package_identity": "swift-crypto",
+      "product_memberships": [
+        "Crypto",
+        "_CryptoExtras"
+      ]
+    },
+    {
+      "name": "CryptoBoringWrapper",
+      "c99name": "CryptoBoringWrapper",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_crypto//:Sources_CryptoBoringWrapper",
+      "package_identity": "swift-crypto",
+      "product_memberships": [
+        "Crypto",
+        "_CryptoExtras"
+      ]
+    },
+    {
+      "name": "_CryptoExtras",
+      "c99name": "_CryptoExtras",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_crypto//:Sources__CryptoExtras",
+      "package_identity": "swift-crypto",
+      "product_memberships": [
+        "_CryptoExtras"
+      ]
+    },
+    {
+      "name": "HTTPTypes",
+      "c99name": "HTTPTypes",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
+      "package_identity": "swift-http-types",
+      "product_memberships": [
+        "HTTPTypes",
+        "HTTPTypesFoundation"
+      ]
+    },
+    {
+      "name": "HTTPTypesFoundation",
+      "c99name": "HTTPTypesFoundation",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_http_types//:Sources_HTTPTypesFoundation",
+      "package_identity": "swift-http-types",
+      "product_memberships": [
+        "HTTPTypesFoundation"
+      ]
+    },
+    {
+      "name": "Logging",
+      "c99name": "Logging",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_log//:Sources_Logging",
+      "package_identity": "swift-log",
+      "product_memberships": [
+        "Logging"
+      ]
+    },
+    {
+      "name": "CoreMetrics",
+      "c99name": "CoreMetrics",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_metrics//:Sources_CoreMetrics",
+      "package_identity": "swift-metrics",
+      "product_memberships": [
+        "CoreMetrics",
+        "Metrics",
+        "MetricsTestKit"
+      ]
+    },
+    {
+      "name": "Metrics",
+      "c99name": "Metrics",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_metrics//:Sources_Metrics",
+      "package_identity": "swift-metrics",
+      "product_memberships": [
+        "Metrics",
+        "MetricsTestKit"
+      ]
+    },
+    {
+      "name": "MetricsTestKit",
+      "c99name": "MetricsTestKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_metrics//:Sources_MetricsTestKit",
+      "package_identity": "swift-metrics",
+      "product_memberships": [
+        "MetricsTestKit"
+      ]
+    },
+    {
+      "name": "CNIOAtomics",
+      "c99name": "CNIOAtomics",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIOAtomics",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOConcurrencyHelpers",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "CNIODarwin",
+      "c99name": "CNIODarwin",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIODarwin",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "CNIOLLHTTP",
+      "c99name": "CNIOLLHTTP",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIOLLHTTP",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOHTTP1",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "CNIOLinux",
+      "c99name": "CNIOLinux",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIOLinux",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "CNIOSHA1",
+      "c99name": "CNIOSHA1",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIOSHA1",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOWebSocket"
+      ]
+    },
+    {
+      "name": "CNIOWindows",
+      "c99name": "CNIOWindows",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio//:Sources_CNIOWindows",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIO",
+      "c99name": "NIO",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIO",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIO",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOConcurrencyHelpers",
+      "c99name": "NIOConcurrencyHelpers",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOConcurrencyHelpers",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOConcurrencyHelpers",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOCore",
+      "c99name": "NIOCore",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOCore",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOEmbedded",
+      "c99name": "NIOEmbedded",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOEmbedded",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIO",
+        "NIOEmbedded",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOFoundationCompat",
+      "c99name": "NIOFoundationCompat",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOFoundationCompat",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOFoundationCompat"
+      ]
+    },
+    {
+      "name": "NIOHTTP1",
+      "c99name": "NIOHTTP1",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOHTTP1",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOHTTP1",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOPosix",
+      "c99name": "NIOPosix",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOPosix",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIO",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOTLS",
+      "c99name": "NIOTLS",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOTLS",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOTLS"
+      ]
+    },
+    {
+      "name": "NIOTestUtils",
+      "c99name": "NIOTestUtils",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOTestUtils",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "NIOWebSocket",
+      "c99name": "NIOWebSocket",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources_NIOWebSocket",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOWebSocket"
+      ]
+    },
+    {
+      "name": "_NIOBase64",
+      "c99name": "_NIOBase64",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources__NIOBase64",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "_NIOConcurrency",
+      "c99name": "_NIOConcurrency",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources__NIOConcurrency",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "_NIOConcurrency"
+      ]
+    },
+    {
+      "name": "_NIODataStructures",
+      "c99name": "_NIODataStructures",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio//:Sources__NIODataStructures",
+      "package_identity": "swift-nio",
+      "product_memberships": [
+        "NIOCore",
+        "NIO",
+        "NIOEmbedded",
+        "NIOPosix",
+        "_NIOConcurrency",
+        "NIOTLS",
+        "NIOHTTP1",
+        "NIOFoundationCompat",
+        "NIOWebSocket",
+        "NIOTestUtils"
+      ]
+    },
+    {
+      "name": "CNIOExtrasZlib",
+      "c99name": "CNIOExtrasZlib",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_CNIOExtrasZlib",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOHTTPCompression"
+      ]
+    },
+    {
+      "name": "NIOExtras",
+      "c99name": "NIOExtras",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOExtras",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOExtras"
+      ]
+    },
+    {
+      "name": "NIOHTTPCompression",
+      "c99name": "NIOHTTPCompression",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPCompression",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOHTTPCompression"
+      ]
+    },
+    {
+      "name": "NIOHTTPTypes",
+      "c99name": "NIOHTTPTypes",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypes",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOHTTPTypes",
+        "NIOHTTPTypesHTTP1",
+        "NIOHTTPTypesHTTP2"
+      ]
+    },
+    {
+      "name": "NIOHTTPTypesHTTP1",
+      "c99name": "NIOHTTPTypesHTTP1",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypesHTTP1",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOHTTPTypesHTTP1"
+      ]
+    },
+    {
+      "name": "NIOHTTPTypesHTTP2",
+      "c99name": "NIOHTTPTypesHTTP2",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypesHTTP2",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOHTTPTypesHTTP2"
+      ]
+    },
+    {
+      "name": "NIOSOCKS",
+      "c99name": "NIOSOCKS",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_extras//:Sources_NIOSOCKS",
+      "package_identity": "swift-nio-extras",
+      "product_memberships": [
+        "NIOSOCKS"
+      ]
+    },
+    {
+      "name": "NIOHPACK",
+      "c99name": "NIOHPACK",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_http2//:Sources_NIOHPACK",
+      "package_identity": "swift-nio-http2",
+      "product_memberships": [
+        "NIOHTTP2"
+      ]
+    },
+    {
+      "name": "NIOHTTP2",
+      "c99name": "NIOHTTP2",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_http2//:Sources_NIOHTTP2",
+      "package_identity": "swift-nio-http2",
+      "product_memberships": [
+        "NIOHTTP2"
+      ]
+    },
+    {
+      "name": "CNIOBoringSSL",
+      "c99name": "CNIOBoringSSL",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio_ssl//:Sources_CNIOBoringSSL",
+      "package_identity": "swift-nio-ssl",
+      "product_memberships": [
+        "NIOSSL",
+        "NIOTLSServer",
+        "NIOSSLHTTP1Client"
+      ]
+    },
+    {
+      "name": "CNIOBoringSSLShims",
+      "c99name": "CNIOBoringSSLShims",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_nio_ssl//:Sources_CNIOBoringSSLShims",
+      "package_identity": "swift-nio-ssl",
+      "product_memberships": [
+        "NIOSSL",
+        "NIOTLSServer",
+        "NIOSSLHTTP1Client"
+      ]
+    },
+    {
+      "name": "NIOSSL",
+      "c99name": "NIOSSL",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_ssl//:Sources_NIOSSL",
+      "package_identity": "swift-nio-ssl",
+      "product_memberships": [
+        "NIOSSL",
+        "NIOTLSServer",
+        "NIOSSLHTTP1Client"
+      ]
+    },
+    {
+      "name": "NIOSSLHTTP1Client",
+      "c99name": "NIOSSLHTTP1Client",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_ssl//:Sources_NIOSSLHTTP1Client",
+      "package_identity": "swift-nio-ssl",
+      "product_memberships": [
+        "NIOSSLHTTP1Client"
+      ]
+    },
+    {
+      "name": "NIOTLSServer",
+      "c99name": "NIOTLSServer",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_ssl//:Sources_NIOTLSServer",
+      "package_identity": "swift-nio-ssl",
+      "product_memberships": [
+        "NIOTLSServer"
+      ]
+    },
+    {
+      "name": "NIOTransportServices",
+      "c99name": "NIOTransportServices",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_nio_transport_services//:Sources_NIOTransportServices",
+      "package_identity": "swift-nio-transport-services",
+      "product_memberships": [
+        "NIOTransportServices"
+      ]
+    },
+    {
+      "name": "ComplexModule",
+      "c99name": "ComplexModule",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_ComplexModule",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics"
+      ]
+    },
+    {
+      "name": "Numerics",
+      "c99name": "Numerics",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_Numerics",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "Numerics"
+      ]
+    },
+    {
+      "name": "RealModule",
+      "c99name": "RealModule",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_numerics//:Sources_RealModule",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics",
+        "RealModule"
+      ]
+    },
+    {
+      "name": "_NumericsShims",
+      "c99name": "_NumericsShims",
+      "src_type": "clang",
+      "label": "@swiftpkg_swift_numerics//:Sources__NumericsShims",
+      "package_identity": "swift-numerics",
+      "product_memberships": [
+        "ComplexModule",
+        "Numerics",
+        "RealModule"
+      ]
+    },
+    {
+      "name": "OpenAPIGenerator",
+      "c99name": "OpenAPIGenerator",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_openapi_generator//:Plugins_OpenAPIGenerator",
+      "package_identity": "swift-openapi-generator",
+      "product_memberships": [
+        "OpenAPIGenerator"
+      ]
+    },
+    {
+      "name": "OpenAPIGeneratorCommand",
+      "c99name": "OpenAPIGeneratorCommand",
+      "src_type": "unknown",
+      "label": "@swiftpkg_swift_openapi_generator//:Plugins_OpenAPIGeneratorCommand",
+      "package_identity": "swift-openapi-generator",
+      "product_memberships": [
+        "OpenAPIGeneratorCommand"
+      ]
+    },
+    {
+      "name": "_OpenAPIGeneratorCore",
+      "c99name": "_OpenAPIGeneratorCore",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_openapi_generator//:Sources__OpenAPIGeneratorCore",
+      "package_identity": "swift-openapi-generator",
+      "product_memberships": [
+        "swift-openapi-generator",
+        "OpenAPIGenerator",
+        "OpenAPIGeneratorCommand",
+        "_OpenAPIGeneratorCore"
+      ]
+    },
+    {
+      "name": "swift-openapi-generator",
+      "c99name": "swift_openapi_generator",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_openapi_generator//:Sources_swift-openapi-generator",
+      "package_identity": "swift-openapi-generator",
+      "product_memberships": [
+        "swift-openapi-generator",
+        "OpenAPIGenerator",
+        "OpenAPIGeneratorCommand"
+      ]
+    },
+    {
+      "name": "OpenAPIRuntime",
+      "c99name": "OpenAPIRuntime",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
+      "package_identity": "swift-openapi-runtime",
+      "product_memberships": [
+        "OpenAPIRuntime"
+      ]
+    },
+    {
+      "name": "OpenAPIVapor",
+      "c99name": "OpenAPIVapor",
+      "src_type": "swift",
+      "label": "@swiftpkg_swift_openapi_vapor//:Sources_OpenAPIVapor",
+      "package_identity": "swift-openapi-vapor",
+      "product_memberships": [
+        "OpenAPIVapor"
+      ]
+    },
+    {
+      "name": "CVaporBcrypt",
+      "c99name": "CVaporBcrypt",
+      "src_type": "clang",
+      "label": "@swiftpkg_vapor//:Sources_CVaporBcrypt",
+      "package_identity": "vapor",
+      "product_memberships": [
+        "Vapor",
+        "XCTVapor"
+      ]
+    },
+    {
+      "name": "CVaporURLParser",
+      "c99name": "CVaporURLParser",
+      "src_type": "clang",
+      "label": "@swiftpkg_vapor//:Sources_CVaporURLParser",
+      "package_identity": "vapor",
+      "product_memberships": [
+        "Vapor",
+        "XCTVapor"
+      ]
+    },
+    {
+      "name": "Vapor",
+      "c99name": "Vapor",
+      "src_type": "swift",
+      "label": "@swiftpkg_vapor//:Sources_Vapor",
+      "package_identity": "vapor",
+      "product_memberships": [
+        "Vapor",
+        "XCTVapor"
+      ]
+    },
+    {
+      "name": "XCTVapor",
+      "c99name": "XCTVapor",
+      "src_type": "swift",
+      "label": "@swiftpkg_vapor//:Sources_XCTVapor",
+      "package_identity": "vapor",
+      "product_memberships": [
+        "XCTVapor"
+      ]
+    },
+    {
+      "name": "WebSocketKit",
+      "c99name": "WebSocketKit",
+      "src_type": "swift",
+      "label": "@swiftpkg_websocket_kit//:Sources_WebSocketKit",
+      "package_identity": "websocket-kit",
+      "product_memberships": [
+        "WebSocketKit"
+      ]
+    },
+    {
+      "name": "CYaml",
+      "c99name": "CYaml",
+      "src_type": "clang",
+      "label": "@swiftpkg_yams//:Sources_CYaml",
+      "package_identity": "yams",
+      "product_memberships": [
+        "Yams"
+      ]
+    },
+    {
+      "name": "Yams",
+      "c99name": "Yams",
+      "src_type": "swift",
+      "label": "@swiftpkg_yams//:Sources_Yams",
+      "package_identity": "yams",
+      "product_memberships": [
+        "Yams"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "identity": "async-http-client",
+      "name": "AsyncHTTPClient",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_async_http_client//:Sources_AsyncHTTPClient"
+      ]
+    },
+    {
+      "identity": "async-kit",
+      "name": "AsyncKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_async_kit//:Sources_AsyncKit"
+      ]
+    },
+    {
+      "identity": "console-kit",
+      "name": "ConsoleKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_console_kit//:Sources_ConsoleKit"
+      ]
+    },
+    {
+      "identity": "console-kit",
+      "name": "ConsoleKitCommands",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_console_kit//:Sources_ConsoleKitCommands"
+      ]
+    },
+    {
+      "identity": "console-kit",
+      "name": "ConsoleKitTerminal",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_console_kit//:Sources_ConsoleKitTerminal"
+      ]
+    },
+    {
+      "identity": "multipart-kit",
+      "name": "MultipartKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_multipart_kit//:Sources_MultipartKit"
+      ]
+    },
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKit"
+      ]
+    },
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKit30",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKit30"
+      ]
+    },
+    {
+      "identity": "openapikit",
+      "name": "OpenAPIKitCompat",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat"
+      ]
+    },
+    {
+      "identity": "routing-kit",
+      "name": "RoutingKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_routing_kit//:Sources_RoutingKit"
+      ]
+    },
+    {
+      "identity": "swift-algorithms",
+      "name": "Algorithms",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_algorithms//:Sources_Algorithms"
+      ]
+    },
+    {
+      "identity": "swift-argument-parser",
+      "name": "ArgumentParser",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser"
+      ]
+    },
+    {
+      "identity": "swift-argument-parser",
+      "name": "GenerateManual",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_argument_parser//:Plugins_GenerateManual"
+      ]
+    },
+    {
+      "identity": "swift-atomics",
+      "name": "Atomics",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_atomics//:Sources_Atomics"
+      ]
+    },
+    {
+      "identity": "swift-collections",
+      "name": "Collections",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_collections//:Sources_Collections"
+      ]
+    },
+    {
+      "identity": "swift-collections",
+      "name": "DequeModule",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_collections//:Sources_DequeModule"
+      ]
+    },
+    {
+      "identity": "swift-collections",
+      "name": "OrderedCollections",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_collections//:Sources_OrderedCollections"
+      ]
+    },
+    {
+      "identity": "swift-crypto",
+      "name": "Crypto",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_crypto//:Sources_Crypto"
+      ]
+    },
+    {
+      "identity": "swift-crypto",
+      "name": "_CryptoExtras",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_crypto//:Sources__CryptoExtras"
+      ]
+    },
+    {
+      "identity": "swift-http-types",
+      "name": "HTTPTypes",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_http_types//:Sources_HTTPTypes"
+      ]
+    },
+    {
+      "identity": "swift-http-types",
+      "name": "HTTPTypesFoundation",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_http_types//:Sources_HTTPTypesFoundation"
+      ]
+    },
+    {
+      "identity": "swift-log",
+      "name": "Logging",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_log//:Sources_Logging"
+      ]
+    },
+    {
+      "identity": "swift-metrics",
+      "name": "CoreMetrics",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_metrics//:Sources_CoreMetrics"
+      ]
+    },
+    {
+      "identity": "swift-metrics",
+      "name": "Metrics",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_metrics//:Sources_Metrics"
+      ]
+    },
+    {
+      "identity": "swift-metrics",
+      "name": "MetricsTestKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_metrics//:Sources_MetricsTestKit"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOExtras",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOExtras"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOHTTPCompression",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPCompression"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOHTTPTypes",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypes"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOHTTPTypesHTTP1",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypesHTTP1"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOHTTPTypesHTTP2",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOHTTPTypesHTTP2"
+      ]
+    },
+    {
+      "identity": "swift-nio-extras",
+      "name": "NIOSOCKS",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_extras//:Sources_NIOSOCKS"
+      ]
+    },
+    {
+      "identity": "swift-nio-http2",
+      "name": "NIOHTTP2",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_http2//:Sources_NIOHTTP2"
+      ]
+    },
+    {
+      "identity": "swift-nio-ssl",
+      "name": "NIOSSL",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_ssl//:Sources_NIOSSL"
+      ]
+    },
+    {
+      "identity": "swift-nio-ssl",
+      "name": "NIOSSLHTTP1Client",
+      "type": "executable",
+      "target_labels": [
+        "@swiftpkg_swift_nio_ssl//:Sources_NIOSSLHTTP1Client"
+      ]
+    },
+    {
+      "identity": "swift-nio-ssl",
+      "name": "NIOTLSServer",
+      "type": "executable",
+      "target_labels": [
+        "@swiftpkg_swift_nio_ssl//:Sources_NIOTLSServer"
+      ]
+    },
+    {
+      "identity": "swift-nio-transport-services",
+      "name": "NIOTransportServices",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio_transport_services//:Sources_NIOTransportServices"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIO",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIO"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOConcurrencyHelpers",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOConcurrencyHelpers"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOCore",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOCore"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOEmbedded",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOEmbedded"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOFoundationCompat",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOFoundationCompat"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOHTTP1",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOHTTP1"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOPosix",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOPosix"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOTLS",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOTLS"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOTestUtils",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOTestUtils"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "NIOWebSocket",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources_NIOWebSocket"
+      ]
+    },
+    {
+      "identity": "swift-nio",
+      "name": "_NIOConcurrency",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_nio//:Sources__NIOConcurrency"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "ComplexModule",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_ComplexModule"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "Numerics",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_Numerics"
+      ]
+    },
+    {
+      "identity": "swift-numerics",
+      "name": "RealModule",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_numerics//:Sources_RealModule"
+      ]
+    },
+    {
+      "identity": "swift-openapi-generator",
+      "name": "OpenAPIGenerator",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_generator//:Plugins_OpenAPIGenerator"
+      ]
+    },
+    {
+      "identity": "swift-openapi-generator",
+      "name": "OpenAPIGeneratorCommand",
+      "type": "plugin",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_generator//:Plugins_OpenAPIGeneratorCommand"
+      ]
+    },
+    {
+      "identity": "swift-openapi-generator",
+      "name": "_OpenAPIGeneratorCore",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_generator//:Sources__OpenAPIGeneratorCore"
+      ]
+    },
+    {
+      "identity": "swift-openapi-generator",
+      "name": "swift-openapi-generator",
+      "type": "executable",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_generator//:Sources_swift-openapi-generator"
+      ]
+    },
+    {
+      "identity": "swift-openapi-runtime",
+      "name": "OpenAPIRuntime",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"
+      ]
+    },
+    {
+      "identity": "swift-openapi-vapor",
+      "name": "OpenAPIVapor",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_swift_openapi_vapor//:Sources_OpenAPIVapor"
+      ]
+    },
+    {
+      "identity": "vapor",
+      "name": "Vapor",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_vapor//:Sources_Vapor"
+      ]
+    },
+    {
+      "identity": "vapor",
+      "name": "XCTVapor",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_vapor//:Sources_XCTVapor"
+      ]
+    },
+    {
+      "identity": "websocket-kit",
+      "name": "WebSocketKit",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_websocket_kit//:Sources_WebSocketKit"
+      ]
+    },
+    {
+      "identity": "yams",
+      "name": "Yams",
+      "type": "library",
+      "target_labels": [
+        "@swiftpkg_yams//:Sources_Yams"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "name": "swiftpkg_async_http_client",
+      "identity": "async-http-client",
+      "remote": {
+        "commit": "16f7e62c08c6969899ce6cc277041e868364e5cf",
+        "remote": "https://github.com/swift-server/async-http-client.git",
+        "version": "1.19.0"
+      }
+    },
+    {
+      "name": "swiftpkg_async_kit",
+      "identity": "async-kit",
+      "remote": {
+        "commit": "7ece208cd401687641c88367a00e3ea2b04311f1",
+        "remote": "https://github.com/vapor/async-kit.git",
+        "version": "1.19.0"
+      }
+    },
+    {
+      "name": "swiftpkg_console_kit",
+      "identity": "console-kit",
+      "remote": {
+        "commit": "18262d24c98c4b76aed2d6def3544b58d0cbad63",
+        "remote": "https://github.com/vapor/console-kit.git",
+        "version": "4.13.0"
+      }
+    },
+    {
+      "name": "swiftpkg_multipart_kit",
+      "identity": "multipart-kit",
+      "remote": {
+        "commit": "1adfd69df2da08f7931d4281b257475e32c96734",
+        "remote": "https://github.com/vapor/multipart-kit.git",
+        "version": "4.5.4"
+      }
+    },
+    {
+      "name": "swiftpkg_openapikit",
+      "identity": "openapikit",
+      "remote": {
+        "commit": "b00b08d05e6fba0e156c06be3332b9774e172afd",
+        "remote": "https://github.com/mattpolzin/OpenAPIKit.git",
+        "version": "3.1.1"
+      }
+    },
+    {
+      "name": "swiftpkg_routing_kit",
+      "identity": "routing-kit",
+      "remote": {
+        "commit": "17a7a3facce8285fd257aa7c72d5e480351e7698",
+        "remote": "https://github.com/vapor/routing-kit.git",
+        "version": "4.8.2"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_algorithms",
+      "identity": "swift-algorithms",
+      "remote": {
+        "commit": "f6919dfc309e7f1b56224378b11e28bab5bccc42",
+        "remote": "https://github.com/apple/swift-algorithms.git",
+        "version": "1.2.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_argument_parser",
+      "identity": "swift-argument-parser",
+      "remote": {
+        "commit": "8f4d2753f0e4778c76d5f05ad16c74f707390531",
+        "remote": "https://github.com/apple/swift-argument-parser.git",
+        "version": "1.2.3"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_atomics",
+      "identity": "swift-atomics",
+      "remote": {
+        "commit": "cd142fd2f64be2100422d658e7411e39489da985",
+        "remote": "https://github.com/apple/swift-atomics",
+        "version": "1.2.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_collections",
+      "identity": "swift-collections",
+      "remote": {
+        "commit": "a902f1823a7ff3c9ab2fba0f992396b948eda307",
+        "remote": "https://github.com/apple/swift-collections.git",
+        "version": "1.0.5"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_crypto",
+      "identity": "swift-crypto",
+      "remote": {
+        "commit": "b51f1d6845b353a2121de1c6a670738ec33561a6",
+        "remote": "https://github.com/apple/swift-crypto.git",
+        "version": "3.1.0"
+      },
+      "cxxLanguageStandard": "c++11"
+    },
+    {
+      "name": "swiftpkg_swift_http_types",
+      "identity": "swift-http-types",
+      "remote": {
+        "commit": "1827dc94bdab2eb5f2fc804e9b0cb43574282566",
+        "remote": "https://github.com/apple/swift-http-types",
+        "version": "1.0.2"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_log",
+      "identity": "swift-log",
+      "remote": {
+        "commit": "532d8b529501fb73a2455b179e0bbb6d49b652ed",
+        "remote": "https://github.com/apple/swift-log.git",
+        "version": "1.5.3"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_metrics",
+      "identity": "swift-metrics",
+      "remote": {
+        "commit": "971ba26378ab69c43737ee7ba967a896cb74c0d1",
+        "remote": "https://github.com/apple/swift-metrics.git",
+        "version": "2.4.1"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_nio",
+      "identity": "swift-nio",
+      "remote": {
+        "commit": "702cd7c56d5d44eeba73fdf83918339b26dc855c",
+        "remote": "https://github.com/apple/swift-nio.git",
+        "version": "2.62.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_nio_extras",
+      "identity": "swift-nio-extras",
+      "remote": {
+        "commit": "798c962495593a23fdea0c0c63fd55571d8dff51",
+        "remote": "https://github.com/apple/swift-nio-extras.git",
+        "version": "1.20.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_nio_http2",
+      "identity": "swift-nio-http2",
+      "remote": {
+        "commit": "3bd9004b9d685ed6b629760fc84903e48efec806",
+        "remote": "https://github.com/apple/swift-nio-http2.git",
+        "version": "1.29.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_nio_ssl",
+      "identity": "swift-nio-ssl",
+      "remote": {
+        "commit": "320bd978cceb8e88c125dcbb774943a92f6286e9",
+        "remote": "https://github.com/apple/swift-nio-ssl.git",
+        "version": "2.25.0"
+      },
+      "cxxLanguageStandard": "c++14"
+    },
+    {
+      "name": "swiftpkg_swift_nio_transport_services",
+      "identity": "swift-nio-transport-services",
+      "remote": {
+        "commit": "ebf8b9c365a6ce043bf6e6326a04b15589bd285e",
+        "remote": "https://github.com/apple/swift-nio-transport-services.git",
+        "version": "1.20.0"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_numerics",
+      "identity": "swift-numerics",
+      "remote": {
+        "commit": "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "remote": "https://github.com/apple/swift-numerics.git",
+        "version": "1.0.2"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_openapi_generator",
+      "identity": "swift-openapi-generator",
+      "remote": {
+        "commit": "7f6baf7227c897f09bad0252cccac2cd57202383",
+        "remote": "https://github.com/apple/swift-openapi-generator",
+        "version": "0.3.5"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_openapi_runtime",
+      "identity": "swift-openapi-runtime",
+      "remote": {
+        "commit": "a51b3bd6f2151e9a6f792ca6937a7242c4758768",
+        "remote": "https://github.com/apple/swift-openapi-runtime",
+        "version": "0.3.6"
+      }
+    },
+    {
+      "name": "swiftpkg_swift_openapi_vapor",
+      "identity": "swift-openapi-vapor",
+      "remote": {
+        "commit": "7e08c66babff3599543944d264cd0e58d39dfa6e",
+        "remote": "https://github.com/swift-server/swift-openapi-vapor",
+        "version": "0.3.4"
+      }
+    },
+    {
+      "name": "swiftpkg_vapor",
+      "identity": "vapor",
+      "remote": {
+        "commit": "c710b8f4412aaa69ab03e77b4be27ce799f5fc1e",
+        "remote": "https://github.com/vapor/vapor",
+        "version": "4.88.0"
+      }
+    },
+    {
+      "name": "swiftpkg_websocket_kit",
+      "identity": "websocket-kit",
+      "remote": {
+        "commit": "53fe0639a98903858d0196b699720decb42aee7b",
+        "remote": "https://github.com/vapor/websocket-kit.git",
+        "version": "2.14.0"
+      }
+    },
+    {
+      "name": "swiftpkg_yams",
+      "identity": "yams",
+      "remote": {
+        "commit": "0d9ee7ea8c4ebd4a489ad7a73d5c6cad55d6fed3",
+        "remote": "https://github.com/jpsim/Yams.git",
+        "version": "5.0.6"
+      }
+    }
+  ]
+}

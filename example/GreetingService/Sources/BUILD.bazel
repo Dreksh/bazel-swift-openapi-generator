@@ -1,0 +1,24 @@
+load("@rules_swift//swift:swift.bzl", "swift_binary")
+load("@swift-openapi-generator//:defs.bzl", "swift_openapi_generate")
+
+swift_binary(
+    name = "Sources",
+    srcs = [
+        "main.swift",
+        ":server_stub", #keep
+    ],
+    module_name = "Sources",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
+        "@swiftpkg_swift_openapi_vapor//:Sources_OpenAPIVapor",
+        "@swiftpkg_vapor//:Sources_Vapor",
+    ],
+)
+
+# Newly added
+swift_openapi_generate(
+    name = "server_stub",
+    spec = "openapi.yaml",
+    config = "openapi-generator-config.yaml",
+)
