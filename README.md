@@ -15,14 +15,15 @@ Here are the instructions for quickly using the generator:
 
 ### Adding the Module
 
-There is a [known issue](#not-hosted-in-a-bazel-registry) where this module can't be manually added
-into the `MODULE.bazel` file.
-The current method is to follow modify the `WORKSPACE` file, not relying on Bazel's module system.
-
-When the issue is resolved, and this module is added to a Bazel registry,
-the dependency is added by inserting this line into `MODULE.bazel`:
+The dependency is added by inserting these lines into `MODULE.bazel`:
 ```skylark
 bazel_dep(name = "swift-openapi-generator", version = "1.0.0-alpha1")
+archive_override(
+    module_name = "swift-openapi-generator",
+    integrity = "sha256-wx04p5+/Kzp062CkvY+I+Dho+qRqEY9rQd7Ow/uI9KA=",
+    strip_prefix = "bazel-swift-openapi-generator-0.0.1-dev.2",
+    urls = ["https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/v0.0.1-dev.2.tar.gz"],
+)
 ```
 
 ### Using the Rule
@@ -79,25 +80,4 @@ single_version_override(
     patches = ["//:rules_swift_package_manager.patch"],
     patch_strip = 1, # Remove 1 directory level, as it's a git diff
 )
-```
-
-### Not Hosted in a Bazel Registry
-
-Since this is not in the bazel registry yet, the module will need to be added via the WORKSPACE.
-This is due to the `swift-openapi-generator` bazel module containing another repository dependency, which requires
-Accessing the `@swift-openapi-generator//:extensions.bzl` file to load.
-
-The steps to do this is:
-1. Add this to the `WORKSPACE` file:
-```skylark
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "swift-openapi-generator",
-    url = "https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/v1.0.0-alpha.1.tar.gz",
-    # sha256 = "5ddbe9c50cb72017e93b83531af6dd5f580b04e3f2e922a093af4e609db35dfa", (SHA not known at time of writing)
-    strip_prefix = "bazel-swift-openapi-generator-1.0.0-alpha.1",
-)
-load("@swift-openapi-generator//:extensions.bzl", swift_openapi_generator_deps = "deps")
-swift_openapi_generator_deps(repository_name="@swift-openapi-generator")
 ```
