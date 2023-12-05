@@ -1654,27 +1654,27 @@
       "name": "swiftpkg_swift_openapi_generator",
       "identity": "swift-openapi-generator",
       "remote": {
-        "commit": "7f6baf7227c897f09bad0252cccac2cd57202383",
+        "commit": "e30691e5d3613994b04b142df5c52158d066b0bb",
         "remote": "https://github.com/apple/swift-openapi-generator",
-        "version": "0.3.5"
+        "version": "1.0.0-alpha.1"
       }
     },
     {
       "name": "swiftpkg_swift_openapi_runtime",
       "identity": "swift-openapi-runtime",
       "remote": {
-        "commit": "a51b3bd6f2151e9a6f792ca6937a7242c4758768",
+        "commit": "7d1644b125c02be1bedcfe1a69b58fae881b2393",
         "remote": "https://github.com/apple/swift-openapi-runtime",
-        "version": "0.3.6"
+        "version": "1.0.0-alpha.1"
       }
     },
     {
       "name": "swiftpkg_swift_openapi_vapor",
       "identity": "swift-openapi-vapor",
       "remote": {
-        "commit": "7e08c66babff3599543944d264cd0e58d39dfa6e",
+        "commit": "dad79bfd9475c1e11c14ed49611727a38ca54fc5",
         "remote": "https://github.com/swift-server/swift-openapi-vapor",
-        "version": "0.3.4"
+        "version": "1.0.0-alpha.1"
       }
     },
     {

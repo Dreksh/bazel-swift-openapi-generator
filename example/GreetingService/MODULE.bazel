@@ -25,7 +25,7 @@ swift_deps.from_file(
 use_repo(
     swift_deps,
     "swiftpkg_swift_openapi_generator",
-    "swiftpkg_swift_openapi_runtime", # (defined within swift-openapi-generator)
+    "swiftpkg_swift_openapi_runtime",
     "swiftpkg_swift_openapi_vapor",
     "swiftpkg_vapor",
 )
