@@ -17,12 +17,12 @@ Here are the instructions for quickly using the generator:
 
 The dependency is added by inserting these lines into `MODULE.bazel`:
 ```skylark
-bazel_dep(name = "swift-openapi-generator", version = "1.0.0-alpha1")
+bazel_dep(name = "swift-openapi-generator", version = "1.0.0-alpha.1")
 archive_override(
     module_name = "swift-openapi-generator",
-    integrity = "sha256-wx04p5+/Kzp062CkvY+I+Dho+qRqEY9rQd7Ow/uI9KA=",
-    strip_prefix = "bazel-swift-openapi-generator-0.0.1-dev.2",
-    urls = ["https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/v0.0.1-dev.2.tar.gz"],
+    integrity = "sha256-mKdLcKFsRxeIH57RVrVfm4t9raC/WfIYEYdZvgO8J5M=",
+    strip_prefix = "bazel-swift-openapi-generator-1.0.0-alpha.1",
+    urls = ["https://github.com/Dreksh/bazel-swift-openapi-generator/archive/refs/tags/v1.0.0-alpha.1.tar.gz"],
 )
 ```
 
