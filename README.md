@@ -15,11 +15,11 @@ Here are the instructions for quickly using the generator:
 
 ### Adding the Module
 
-There is a [known issue](#not-hosted-in-a-bazel-repository) where this module can't be manually added
+There is a [known issue](#not-hosted-in-a-bazel-registry) where this module can't be manually added
 into the `MODULE.bazel` file.
 The current method is to follow modify the `WORKSPACE` file, not relying on Bazel's module system.
 
-When the issue is resolved, and this module is added to a Bazel repository,
+When the issue is resolved, and this module is added to a Bazel registry,
 the dependency is added by inserting this line into `MODULE.bazel`:
 ```skylark
 bazel_dep(name = "swift-openapi-generator", version = "1.0.0-alpha1")
@@ -81,9 +81,9 @@ single_version_override(
 )
 ```
 
-### Not Hosted in a Bazel Repository
+### Not Hosted in a Bazel Registry
 
-Since this is not in the bazel repository yet, the module will need to be added via the WORKSPACE.
+Since this is not in the bazel registry yet, the module will need to be added via the WORKSPACE.
 This is due to the `swift-openapi-generator` bazel module containing another repository dependency, which requires
 Accessing the `@swift-openapi-generator//:extensions.bzl` file to load.
 
