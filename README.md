@@ -98,6 +98,6 @@ http_archive(
     # sha256 = "5ddbe9c50cb72017e93b83531af6dd5f580b04e3f2e922a093af4e609db35dfa", (SHA not known at time of writing)
     strip_prefix = "bazel-swift-openapi-generator-1.0.0-alpha.1",
 )
-load("@swift-openapi-generator//:extensions.bzl", _load_code = "_load_code_impl")
-_load_code()
+load("@swift-openapi-generator//:extensions.bzl", swift_openapi_generator_deps = "deps")
+swift_openapi_generator_deps(repository_name="@swift-openapi-generator")
 ```
