@@ -40,150 +40,6 @@ index 0000000..690b968
 +    name = "create_build_files",
 +    gazelle = ":gazelle_bin",
 +)
-diff --git a/Examples/GreetingService/Sources/GreetingService/BUILD.bazel b/Examples/GreetingService/Sources/GreetingService/BUILD.bazel
-new file mode 100644
-index 0000000..1367c56
---- /dev/null
-+++ b/Examples/GreetingService/Sources/GreetingService/BUILD.bazel
-@@ -0,0 +1,9 @@
-+load("@rules_swift//swift:swift.bzl", "swift_binary")
-+
-+swift_binary(
-+    name = "GreetingService",
-+    srcs = ["GreetingService.swift"],
-+    module_name = "GreetingService",
-+    visibility = ["//visibility:public"],
-+    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
-+)
-diff --git a/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel b/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel
-new file mode 100644
-index 0000000..a6d13fc
---- /dev/null
-+++ b/Examples/GreetingService/Tests/GreetingServiceMockTests/BUILD.bazel
-@@ -0,0 +1,11 @@
-+load("@rules_swift//swift:swift.bzl", "swift_test")
-+
-+swift_test(
-+    name = "GreetingServiceMockTests",
-+    srcs = [
-+        "MockGreetingService.swift",
-+        "MockGreetingServiceTests.swift",
-+    ],
-+    module_name = "GreetingServiceMockTests",
-+    deps = ["//Examples/GreetingService/Sources/GreetingService"],
-+)
-diff --git a/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel b/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel
-new file mode 100644
-index 0000000..fcb5a1f
---- /dev/null
-+++ b/Examples/GreetingServiceClient/Sources/GreetingServiceClient/BUILD.bazel
-@@ -0,0 +1,9 @@
-+load("@rules_swift//swift:swift.bzl", "swift_binary")
-+
-+swift_binary(
-+    name = "GreetingServiceClient",
-+    srcs = ["GreetingServiceClient.swift"],
-+    module_name = "GreetingServiceClient",
-+    visibility = ["//visibility:public"],
-+    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
-+)
-diff --git a/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel b/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel
-new file mode 100644
-index 0000000..144d498
---- /dev/null
-+++ b/Examples/GreetingServiceClient/Tests/GreetingServiceMockTests/BUILD.bazel
-@@ -0,0 +1,11 @@
-+load("@rules_swift//swift:swift.bzl", "swift_test")
-+
-+swift_test(
-+    name = "GreetingServiceMockTests",
-+    srcs = [
-+        "MockGreetingService.swift",
-+        "MockGreetingServiceTests.swift",
-+    ],
-+    module_name = "GreetingServiceMockTests",
-+    deps = ["//Examples/GreetingServiceClient/Sources/GreetingServiceClient"],
-+)
-diff --git a/IntegrationTest/Sources/Client/BUILD.bazel b/IntegrationTest/Sources/Client/BUILD.bazel
-new file mode 100644
-index 0000000..2e5bbe2
---- /dev/null
-+++ b/IntegrationTest/Sources/Client/BUILD.bazel
-@@ -0,0 +1,8 @@
-+load("@rules_swift//swift:swift.bzl", "swift_library")
-+
-+swift_library(
-+    name = "Client",
-+    srcs = ["Empty.swift"],
-+    module_name = "Client",
-+    visibility = ["//visibility:public"],
-+)
-diff --git a/IntegrationTest/Sources/MockTransportClient/BUILD.bazel b/IntegrationTest/Sources/MockTransportClient/BUILD.bazel
-new file mode 100644
-index 0000000..99501ea
---- /dev/null
-+++ b/IntegrationTest/Sources/MockTransportClient/BUILD.bazel
-@@ -0,0 +1,13 @@
-+load("@rules_swift//swift:swift.bzl", "swift_library")
-+
-+swift_library(
-+    name = "MockTransportClient",
-+    srcs = ["Client.swift"],
-+    module_name = "MockTransportClient",
-+    visibility = ["//visibility:public"],
-+    deps = [
-+        "//IntegrationTest/Sources/Client",
-+        "//IntegrationTest/Sources/Types",
-+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
-+    ],
-+)
-diff --git a/IntegrationTest/Sources/MockTransportServer/BUILD.bazel b/IntegrationTest/Sources/MockTransportServer/BUILD.bazel
-new file mode 100644
-index 0000000..4716d60
---- /dev/null
-+++ b/IntegrationTest/Sources/MockTransportServer/BUILD.bazel
-@@ -0,0 +1,13 @@
-+load("@rules_swift//swift:swift.bzl", "swift_library")
-+
-+swift_library(
-+    name = "MockTransportServer",
-+    srcs = ["Server.swift"],
-+    module_name = "MockTransportServer",
-+    visibility = ["//visibility:public"],
-+    deps = [
-+        "//IntegrationTest/Sources/Server",
-+        "//IntegrationTest/Sources/Types",
-+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
-+    ],
-+)
-diff --git a/IntegrationTest/Sources/Server/BUILD.bazel b/IntegrationTest/Sources/Server/BUILD.bazel
-new file mode 100644
-index 0000000..dd8c037
---- /dev/null
-+++ b/IntegrationTest/Sources/Server/BUILD.bazel
-@@ -0,0 +1,8 @@
-+load("@rules_swift//swift:swift.bzl", "swift_library")
-+
-+swift_library(
-+    name = "Server",
-+    srcs = ["Empty.swift"],
-+    module_name = "Server",
-+    visibility = ["//visibility:public"],
-+)
-diff --git a/IntegrationTest/Sources/Types/BUILD.bazel b/IntegrationTest/Sources/Types/BUILD.bazel
-new file mode 100644
-index 0000000..dccba42
---- /dev/null
-+++ b/IntegrationTest/Sources/Types/BUILD.bazel
-@@ -0,0 +1,8 @@
-+load("@rules_swift//swift:swift.bzl", "swift_library")
-+
-+swift_library(
-+    name = "Types",
-+    srcs = ["Empty.swift"],
-+    module_name = "Types",
-+    visibility = ["//visibility:public"],
-+)
 diff --git a/Plugins/OpenAPIGenerator/BUILD.bazel b/Plugins/OpenAPIGenerator/BUILD.bazel
 new file mode 100644
 index 0000000..80c770f
@@ -231,10 +87,10 @@ index 0000000..6f45956
 +)
 diff --git a/Sources/PetstoreConsumerTestCore/BUILD.bazel b/Sources/PetstoreConsumerTestCore/BUILD.bazel
 new file mode 100644
-index 0000000..22d7b4e
+index 0000000..5e01524
 --- /dev/null
 +++ b/Sources/PetstoreConsumerTestCore/BUILD.bazel
-@@ -0,0 +1,14 @@
+@@ -0,0 +1,17 @@
 +load("@rules_swift//swift:swift.bzl", "swift_library")
 +
 +swift_library(
@@ -247,7 +103,10 @@ index 0000000..22d7b4e
 +    ],
 +    module_name = "PetstoreConsumerTestCore",
 +    visibility = ["//visibility:public"],
-+    deps = ["@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime"],
++    deps = [
++        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
++        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++    ],
 +)
 diff --git a/Sources/_OpenAPIGeneratorCore/BUILD.bazel b/Sources/_OpenAPIGeneratorCore/BUILD.bazel
 new file mode 100644
@@ -429,10 +288,10 @@ index 0000000..8eaffd7
 +)
 diff --git a/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
 new file mode 100644
-index 0000000..9fc8868
+index 0000000..92de772
 --- /dev/null
 +++ b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,21 @@
 +load("@rules_swift//swift:swift.bzl", "swift_test")
 +
 +swift_test(
@@ -449,16 +308,17 @@ index 0000000..9fc8868
 +    module_name = "OpenAPIGeneratorReferenceTests",
 +    deps = [
 +        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
++        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
 +        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
 +        "@swiftpkg_yams//:Sources_Yams",
 +    ],
 +)
 diff --git a/Tests/PetstoreConsumerTests/BUILD.bazel b/Tests/PetstoreConsumerTests/BUILD.bazel
 new file mode 100644
-index 0000000..c870a2f
+index 0000000..be589f9
 --- /dev/null
 +++ b/Tests/PetstoreConsumerTests/BUILD.bazel
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,21 @@
 +load("@rules_swift//swift:swift.bzl", "swift_library")
 +
 +swift_library(
@@ -476,6 +336,7 @@ index 0000000..c870a2f
 +    visibility = ["//visibility:public"],
 +    deps = [
 +        "//Sources/PetstoreConsumerTestCore",
++        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
 +        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
 +    ],
 +)

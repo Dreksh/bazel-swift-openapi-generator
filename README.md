@@ -26,6 +26,8 @@ archive_override(
 )
 ```
 
+Check the release notes for the updated values to put into the snippet above.
+
 ### Using the Rule
 
 In the Bazel package where you want to generate the Swift code from OpenAPI specs, add these lines:

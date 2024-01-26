@@ -75,6 +75,7 @@ tar -xzf archive.tar.gz
 rm archive.tar.gz
 cd "swift-openapi-generator-${VERSION}"
 git init &>/dev/null                    # git init usually prints a message
+rm -rf Examples IntegrationTest
 git add .
 git commit -m "Base commit" &>/dev/null
 touch WORKSPACE
