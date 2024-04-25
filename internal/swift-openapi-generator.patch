@@ -87,7 +87,7 @@ index 0000000..6f45956
 +)
 diff --git a/Sources/PetstoreConsumerTestCore/BUILD.bazel b/Sources/PetstoreConsumerTestCore/BUILD.bazel
 new file mode 100644
-index 0000000..5e01524
+index 0000000..a2406f5
 --- /dev/null
 +++ b/Sources/PetstoreConsumerTestCore/BUILD.bazel
 @@ -0,0 +1,17 @@
@@ -104,13 +104,13 @@ index 0000000..5e01524
 +    module_name = "PetstoreConsumerTestCore",
 +    visibility = ["//visibility:public"],
 +    deps = [
-+        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
-+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++        "@swiftpkg_swift_http_types//:HTTPTypes",
++        "@swiftpkg_swift_openapi_runtime//:OpenAPIRuntime",
 +    ],
 +)
 diff --git a/Sources/_OpenAPIGeneratorCore/BUILD.bazel b/Sources/_OpenAPIGeneratorCore/BUILD.bazel
 new file mode 100644
-index 0000000..ab1271b
+index 0000000..bdd7b2e
 --- /dev/null
 +++ b/Sources/_OpenAPIGeneratorCore/BUILD.bazel
 @@ -0,0 +1,102 @@
@@ -211,14 +211,14 @@ index 0000000..ab1271b
 +    module_name = "_OpenAPIGeneratorCore",
 +    visibility = ["//visibility:public"],
 +    deps = [
-+        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
-+        "@swiftpkg_swift_algorithms//:Sources_Algorithms",
-+        "@swiftpkg_yams//:Sources_Yams",
++        "@swiftpkg_openapikit//:OpenAPIKitCompat",
++        "@swiftpkg_swift_algorithms//:Algorithms",
++        "@swiftpkg_yams//:Yams",
 +    ],
 +)
 diff --git a/Sources/swift-openapi-generator/BUILD.bazel b/Sources/swift-openapi-generator/BUILD.bazel
 new file mode 100644
-index 0000000..ddc3f1c
+index 0000000..04d798f
 --- /dev/null
 +++ b/Sources/swift-openapi-generator/BUILD.bazel
 @@ -0,0 +1,24 @@
@@ -241,14 +241,14 @@ index 0000000..ddc3f1c
 +    visibility = ["//visibility:public"],
 +    deps = [
 +        "//Sources/_OpenAPIGeneratorCore",
-+        "@swiftpkg_openapikit//:Sources_OpenAPIKit",
-+        "@swiftpkg_swift_argument_parser//:Sources_ArgumentParser",
-+        "@swiftpkg_yams//:Sources_Yams",
++        "@swiftpkg_openapikit//:OpenAPIKit",
++        "@swiftpkg_swift_argument_parser//:ArgumentParser",
++        "@swiftpkg_yams//:Yams",
 +    ],
 +)
 diff --git a/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel b/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel
 new file mode 100644
-index 0000000..8eaffd7
+index 0000000..d17c71a
 --- /dev/null
 +++ b/Tests/OpenAPIGeneratorCoreTests/BUILD.bazel
 @@ -0,0 +1,34 @@
@@ -282,13 +282,13 @@ index 0000000..8eaffd7
 +    module_name = "OpenAPIGeneratorCoreTests",
 +    visibility = ["//visibility:public"],
 +    deps = [
-+        "@swiftpkg_openapikit//:Sources_OpenAPIKit",
-+        "@swiftpkg_yams//:Sources_Yams",
++        "@swiftpkg_openapikit//:OpenAPIKit",
++        "@swiftpkg_yams//:Yams",
 +    ],
 +)
 diff --git a/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
 new file mode 100644
-index 0000000..92de772
+index 0000000..728b560
 --- /dev/null
 +++ b/Tests/OpenAPIGeneratorReferenceTests/BUILD.bazel
 @@ -0,0 +1,21 @@
@@ -307,15 +307,15 @@ index 0000000..92de772
 +    ],
 +    module_name = "OpenAPIGeneratorReferenceTests",
 +    deps = [
-+        "@swiftpkg_openapikit//:Sources_OpenAPIKitCompat",
-+        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
-+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
-+        "@swiftpkg_yams//:Sources_Yams",
++        "@swiftpkg_openapikit//:OpenAPIKitCompat",
++        "@swiftpkg_swift_http_types//:HTTPTypes",
++        "@swiftpkg_swift_openapi_runtime//:OpenAPIRuntime",
++        "@swiftpkg_yams//:Yams",
 +    ],
 +)
 diff --git a/Tests/PetstoreConsumerTests/BUILD.bazel b/Tests/PetstoreConsumerTests/BUILD.bazel
 new file mode 100644
-index 0000000..be589f9
+index 0000000..d6fd8ce
 --- /dev/null
 +++ b/Tests/PetstoreConsumerTests/BUILD.bazel
 @@ -0,0 +1,21 @@
@@ -336,8 +336,8 @@ index 0000000..be589f9
 +    visibility = ["//visibility:public"],
 +    deps = [
 +        "//Sources/PetstoreConsumerTestCore",
-+        "@swiftpkg_swift_http_types//:Sources_HTTPTypes",
-+        "@swiftpkg_swift_openapi_runtime//:Sources_OpenAPIRuntime",
++        "@swiftpkg_swift_http_types//:HTTPTypes",
++        "@swiftpkg_swift_openapi_runtime//:OpenAPIRuntime",
 +    ],
 +)
 diff --git a/WORKSPACE b/WORKSPACE

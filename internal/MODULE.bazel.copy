@@ -1,6 +1,6 @@
 # Copied from https://github.com/cgrindel/rules_swift_package_manager#quickstart
-bazel_dep(name = "rules_swift_package_manager", version = "0.22.0")
-bazel_dep(name = "gazelle", version = "0.34.0") # Needed for swift_package_manager
+bazel_dep(name = "rules_swift_package_manager", version = "0.30.0")
+bazel_dep(name = "gazelle", version = "0.35.0") # Needed for swift_package_manager
 bazel_dep(name = "bazel_skylib", version = "1.5.0") # Needed for gazelle
-bazel_dep(name = "rules_swift", version = "1.13.0") # Needed for Swift
+bazel_dep(name = "rules_swift", version = "1.16.0") # Needed for Swift
 
