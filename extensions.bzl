@@ -4,9 +4,9 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 def _load_code_impl(module_ctx):
     http_archive(
         name = "swift-openapi-generator-code",
-        url = "https://github.com/apple/swift-openapi-generator/archive/refs/tags/1.2.1.tar.gz",
-        sha256 = "245daf3021c417df72901401985133c246d02d0d203f1469b6e2f38df8812fbe",
-        strip_prefix = "swift-openapi-generator-1.2.1",
+        url = "https://github.com/apple/swift-openapi-generator/archive/refs/tags/1.11.1.tar.gz",
+        sha256 = "3ced0a46969b2524497a7e8f80a65aa17ed6f5ee01f17a3705e0fe5e9ee122c5",
+        strip_prefix = "swift-openapi-generator-1.11.1",
 
         patches = ["//:internal/swift-openapi-generator.patch"], # Add pre-calculated bazel files to the repo
         patch_args = ["-p1"],                                    # Using Git-diff requires stripping the first path

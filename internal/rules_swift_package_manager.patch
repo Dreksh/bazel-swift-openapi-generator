@@ -1,0 +1,104 @@
+diff --git a/swiftpkg/bzlmod/swift_deps.bzl b/swiftpkg/bzlmod/swift_deps.bzl
+index 3b7d4ffc..ce9cb4c4 100644
+--- a/swiftpkg/bzlmod/swift_deps.bzl
++++ b/swiftpkg/bzlmod/swift_deps.bzl
+@@ -16,7 +16,7 @@ load("//swiftpkg/internal:swift_package_tool_repo.bzl", "swift_package_tool_repo
+ 
+ _DO_WHILE_RANGE = range(1000)
+ 
+-def _declare_pkgs_from_package(module_ctx, from_package, config_pkgs, config_swift_package):
++def _declare_pkgs_from_package(module_ctx, from_package, config_pkgs, config_swift_package, declared_pkgs):
+     """Declare Swift packages from `Package.swift` and `Package.resolved`.
+ 
+     Args:
+@@ -92,20 +92,21 @@ def _declare_pkgs_from_package(module_ctx, from_package, config_pkgs, config_swi
+     direct_dep_pkg_infos = {}
+     for dep in pkg_info.dependencies:
+         bazel_repo_name = bazel_repo_names.from_identity(dep.identity)
++        if bazel_repo_name in declared_pkgs:
++            continue
+         direct_dep_repo_names.append(bazel_repo_name)
+         pkg_info_label = "@{}//:pkg_info.json".format(bazel_repo_name)
+         direct_dep_pkg_infos[pkg_info_label] = dep.identity
+ 
+     # Write info about the Swift deps that may be used by external tooling.
+     if from_package.declare_swift_deps_info:
+-        swift_deps_info_repo_name = "swift_deps_info"
+         swift_deps_info(
+-            name = swift_deps_info_repo_name,
++            name = from_package.declare_swift_deps_info,
+             direct_dep_pkg_infos = direct_dep_pkg_infos,
+         )
+-        direct_dep_repo_names.append(swift_deps_info_repo_name)
++        direct_dep_repo_names.append(from_package.declare_swift_deps_info)
+ 
+-    if from_package.declare_swift_package:
++    if from_package.declare_swift_package and not "swift_package" in declared_pkgs:
+         swift_package_repo_name = "swift_package"
+         _declare_swift_package_repo(
+             name = swift_package_repo_name,
+@@ -113,6 +114,7 @@ def _declare_pkgs_from_package(module_ctx, from_package, config_pkgs, config_swi
+             config_swift_package = config_swift_package,
+         )
+         direct_dep_repo_names.append(swift_package_repo_name)
++        declared_pkgs.append(swift_package_repo_name)
+ 
+     # Ensure that we add all of the transitive source control
+     # or registry deps from the resolved file.
+@@ -201,6 +203,10 @@ the Swift package to make it available.\
+ """.format(name = dep.name))
+             _declare_unresolved_pkg_from_dependency(dep)
+             continue
++        dep_name = bazel_repo_names.from_identity(dep.identity)
++        if dep_name in declared_pkgs:
++            continue
++        declared_pkgs.append(dep_name)
+ 
+         config_pkg = config_pkgs.get(dep.name)
+         if config_pkg == None:
+@@ -222,8 +228,9 @@ the Swift package to make it available.\
+         )
+         if config_pkg and config_pkg.publicly_expose_all_targets:
+             bazel_repo_name = bazel_repo_names.from_identity(dep.identity)
+-            if bazel_repo_name not in direct_dep_repo_names:
++            if bazel_repo_name not in direct_dep_repo_names and bazel_repo_name not in declared_pkgs:
+                 direct_dep_repo_names.append(bazel_repo_name)
++                declared_pkgs.append(bazel_repo_name)
+ 
+     return direct_dep_repo_names
+ 
+@@ -364,16 +371,17 @@ Expected only one `configure_swift_package` tag, but found multiple.\
+ """)
+             config_swift_package = config_swift_package_tag
+     direct_dep_repo_names = []
++    declared_pkgs = []
+     for mod in module_ctx.modules:
+         for from_package in mod.tags.from_package:
+-            direct_dep_repo_names.extend(
+-                _declare_pkgs_from_package(
+-                    module_ctx,
+-                    from_package,
+-                    config_pkgs,
+-                    config_swift_package,
+-                ),
++            new_pkgs = _declare_pkgs_from_package(
++                module_ctx,
++                from_package,
++                config_pkgs,
++                config_swift_package,
++                declared_pkgs,
+             )
++            direct_dep_repo_names.extend(new_pkgs)
+     return module_ctx.extension_metadata(
+         root_module_direct_deps = direct_dep_repo_names,
+         root_module_direct_dev_deps = [],
+@@ -384,7 +392,7 @@ _from_package_tag = tag_class(
+         swift_package_tool_attrs.swift_package_registry,
+         {
+             "cached_json_directory": attr.string(),
+-            "declare_swift_deps_info": attr.bool(
++            "declare_swift_deps_info": attr.string(
+                 doc = """\
+ Declare a `swift_deps_info` repository that is used by external tooling (e.g. \
+ Swift Gazelle plugin).\
+

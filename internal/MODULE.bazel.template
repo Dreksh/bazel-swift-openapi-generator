@@ -6,3 +6,27 @@ use_repo(
     "swift-openapi-generator-code",
 )
 
+bazel_dep(name = "rules_shell", version = "0.8.0")  # for sh_binary
+
+# Copied from https://github.com/cgrindel/rules_swift_package_manager#quickstart
+bazel_dep(name = "rules_swift_package_manager", version = "1.15.0")
+single_version_override(
+    module_name = "rules_swift_package_manager",
+    patches = ["//:internal/rules_swift_package_manager.patch"],
+    patch_strip = 1,
+)
+bazel_dep(name = "gazelle", version = "0.47.0") # Needed for swift_package_manager
+bazel_dep(name = "swift_gazelle_plugin", version = "0.2.2")
+bazel_dep(name = "bazel_skylib", version = "1.9.0") # Needed for gazelle
+bazel_dep(name = "rules_swift", version = "3.6.0") # Needed for Swift
+
+swift_deps = use_extension(
+    "@rules_swift_package_manager//:extensions.bzl",
+    "swift_deps",
+)
+swift_deps.from_package(
+    declare_swift_deps_info = "swift_deps_info",
+    declare_swift_package = False,
+    resolved = "@swift-openapi-generator-code//:Package.resolved",
+    swift = "@swift-openapi-generator-code//:Package.swift",
+)
